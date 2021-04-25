@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_normal">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivEnd"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_error_default"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Large"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:indeterminateTint="@color/iron"
+            app:layout_constraintBottom_toBottomOf="@id/ivEnd"
+            app:layout_constraintEnd_toEndOf="@id/ivEnd"
+            app:layout_constraintStart_toStartOf="@id/ivEnd"
+            app:layout_constraintTop_toTopOf="@id/ivEnd" />
+
+        <TextView
+            android:id="@+id/tvContentError"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_normal"
+            android:gravity="center"
+            android:text="@string/error_load"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/dove_gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivEnd" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
