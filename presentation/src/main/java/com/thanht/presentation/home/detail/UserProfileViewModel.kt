@@ -1,5 +1,6 @@
 package com.thanht.presentation.home.detail
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
@@ -18,6 +19,7 @@ class UserProfileViewModel @Inject constructor(
     private val getUserDetailUseCase: GetUserDetailUseCase,
     private val mPostExecutionThread: PostExecutionThread
 ) : BaseViewModel() {
+
     private val mUserInfoLive = MutableLiveData<UserInfo>()
     val userInfoLive: LiveData<UserInfo> = mUserInfoLive
 
@@ -46,24 +48,29 @@ class UserProfileViewModel @Inject constructor(
     }
 
     fun setUserInfo(userInfo: UserInfo?) {
-        mUserInfoLive.value = userInfo
+        userInfo ?: return
+        mUserInfoLive.value?.userName ?: run {
+            mUserInfoLive.value = userInfo
+            loadUserInfo(userInfo.userName)
+        }
     }
 
-    fun loadUserInfo() {
+    private fun loadUserInfo(userName: String?) {
         viewModelScope.launch(mPostExecutionThread.io) {
-            val result = getUserDetailUseCase.getUserDetail(userInfoLive.value?.userName)
+            val result = getUserDetailUseCase.getUserDetail(userName)
             when (result.status) {
                 Status.SUCCESS -> {
                     val userModel = result.data?.toUserModel()
                     mUserInfoLive.postValue(userModel?.toUserInfo())
                 }
                 Status.ERROR -> {
-                    mErrorMsgLive.value = result.message
+                    mErrorMsgLive.postValue(result.message)
                 }
                 Status.EMPTY -> {
-                    mErrorMsgLive.value = "User not found"
+                    mErrorMsgLive.postValue("User not found")
                 }
-                else -> {}
+                else -> {
+                }
             }
         }
     }

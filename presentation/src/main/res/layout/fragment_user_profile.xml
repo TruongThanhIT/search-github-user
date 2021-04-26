@@ -11,232 +11,238 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvTitle"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:background="@color/colorPrimary"
-            android:gravity="center_vertical"
-            android:paddingStart="40dp"
-            android:paddingEnd="@dimen/padding_normal"
-            android:text="@string/user_profile"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="@id/ivBack"
-            app:layout_constraintTop_toTopOf="@id/ivBack" />
+            android:layout_height="wrap_content">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/ivBack"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/actionBarSize"
-            android:layout_gravity="center"
-            android:background="?attr/selectableItemBackground"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_back_left" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTitle"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/colorPrimary"
+                android:gravity="center_vertical"
+                android:paddingStart="40dp"
+                android:paddingEnd="@dimen/padding_normal"
+                android:text="@string/user_profile"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="@id/ivBack"
+                app:layout_constraintTop_toTopOf="@id/ivBack" />
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/ivAvatar"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_marginTop="@dimen/padding_medium"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvTitle"
-            app:url="@{viewModel.userInfoLive.avatar}"
-            tools:srcCompat="@tools:sample/avatars" />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivBack"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/actionBarSize"
+                android:layout_gravity="center"
+                android:background="?attr/selectableItemBackground"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_back_left" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding_small"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:text="@{viewModel.userInfoLive.fullName}"
-            android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            app:layout_constraintTop_toBottomOf="@id/ivAvatar"
-            tools:text="Truong Thanh" />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivAvatar"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="@dimen/padding_medium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvTitle"
+                app:url="@{viewModel.userInfoLive.avatar}"
+                tools:srcCompat="@tools:sample/avatars" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvAddress"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding_tiny"
-            android:text="@{viewModel.userInfoLive.location}"
-            android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            app:layout_constraintTop_toBottomOf="@id/tvName"
-            tools:text="Viet Nam" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_small"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@{viewModel.userInfoLive.fullName}"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                app:layout_constraintTop_toBottomOf="@id/ivAvatar"
+                tools:text="Truong Thanh" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvFollowerNum"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding_tiny"
-            android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title"
-            app:formatNumber="@{viewModel.userInfoLive.followers}"
-            app:layout_constraintEnd_toStartOf="@id/tvFollowingNum"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvAddress"
-            tools:text="2207" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_tiny"
+                android:text="@{viewModel.userInfoLive.location}"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                app:layout_constraintTop_toBottomOf="@id/tvName"
+                tools:text="Viet Nam" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvFollowingNum"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding_tiny"
-            android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title"
-            app:formatNumber="@{viewModel.userInfoLive.following}"
-            app:layout_constraintBaseline_toBaselineOf="@id/tvFollowerNum"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tvFollowerNum"
-            tools:text="1995" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvFollowerNum"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_tiny"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                app:formatNumber="@{viewModel.userInfoLive.followers}"
+                app:layout_constraintEnd_toStartOf="@id/tvFollowingNum"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvAddress"
+                tools:text="2207" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvFollowerLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding_tiny"
-            android:layout_marginBottom="8dp"
-            android:text="@string/followers"
-            android:textAlignment="center"
-            android:textAllCaps="true"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            app:layout_constraintEnd_toEndOf="@id/tvFollowerNum"
-            app:layout_constraintStart_toStartOf="@id/tvFollowerNum"
-            app:layout_constraintTop_toBottomOf="@id/tvFollowerNum" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvFollowingNum"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_tiny"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                app:formatNumber="@{viewModel.userInfoLive.following}"
+                app:layout_constraintBaseline_toBaselineOf="@id/tvFollowerNum"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvFollowerNum"
+                tools:text="1995" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvFollowingLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding_tiny"
-            android:text="@string/following"
-            android:textAlignment="center"
-            android:textAllCaps="true"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            app:layout_constraintBaseline_toBaselineOf="@id/tvFollowerLabel"
-            app:layout_constraintEnd_toEndOf="@id/tvFollowingNum"
-            app:layout_constraintStart_toStartOf="@id/tvFollowingNum" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvFollowerLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_tiny"
+                android:layout_marginBottom="8dp"
+                android:text="@string/followers"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                app:layout_constraintEnd_toEndOf="@id/tvFollowerNum"
+                app:layout_constraintStart_toStartOf="@id/tvFollowerNum"
+                app:layout_constraintTop_toBottomOf="@id/tvFollowerNum" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/glStart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_begin="@dimen/padding_normal"
-            app:layout_constraintStart_toStartOf="parent" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvFollowingLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_tiny"
+                android:text="@string/following"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                app:layout_constraintBaseline_toBaselineOf="@id/tvFollowerLabel"
+                app:layout_constraintEnd_toEndOf="@id/tvFollowingNum"
+                app:layout_constraintStart_toStartOf="@id/tvFollowingNum" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/glEnd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintGuide_end="@dimen/padding_normal"
-            app:layout_constraintStart_toStartOf="parent" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/glStart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/padding_normal"
+                app:layout_constraintStart_toStartOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvEmailLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding_large"
-            android:text="@string/email"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            app:gone="@{viewModel.hideEmailViewLive}"
-            app:layout_constraintStart_toStartOf="@id/glStart"
-            app:layout_constraintTop_toBottomOf="@id/tvFollowerLabel" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/glEnd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintGuide_end="@dimen/padding_normal"
+                app:layout_constraintStart_toStartOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvEmail"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding_tiny"
-            android:text="@{viewModel.userInfoLive.email}"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            app:gone="@{viewModel.hideEmailViewLive}"
-            app:layout_constraintEnd_toEndOf="@id/glEnd"
-            app:layout_constraintStart_toStartOf="@id/glStart"
-            app:layout_constraintTop_toBottomOf="@id/tvEmailLabel"
-            tools:text="truongthanh.it95@gmail.com" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvEmailLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_large"
+                android:text="@string/email"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                app:gone="@{viewModel.hideEmailViewLive}"
+                app:layout_constraintStart_toStartOf="@id/glStart"
+                app:layout_constraintTop_toBottomOf="@id/tvFollowerLabel" />
 
-        <View
-            android:id="@+id/firstDivider"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/divider_height"
-            android:layout_marginTop="@dimen/padding_normal"
-            android:background="@color/dove_gray"
-            app:gone="@{viewModel.hideEmailViewLive}"
-            app:layout_constraintEnd_toEndOf="@id/glEnd"
-            app:layout_constraintStart_toStartOf="@id/glStart"
-            app:layout_constraintTop_toBottomOf="@id/tvEmail" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvEmail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_tiny"
+                android:text="@{viewModel.userInfoLive.email}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                app:gone="@{viewModel.hideEmailViewLive}"
+                app:layout_constraintEnd_toEndOf="@id/glEnd"
+                app:layout_constraintStart_toStartOf="@id/glStart"
+                app:layout_constraintTop_toBottomOf="@id/tvEmailLabel"
+                tools:text="truongthanh.it95@gmail.com" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvCompanyLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding_normal"
-            android:text="@string/company"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            app:gone="@{viewModel.hideCompanyViewLive}"
-            app:layout_constraintStart_toStartOf="@id/glStart"
-            app:layout_constraintTop_toBottomOf="@id/firstDivider" />
+            <View
+                android:id="@+id/firstDivider"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/divider_height"
+                android:layout_marginTop="@dimen/padding_normal"
+                android:background="@color/dove_gray"
+                app:gone="@{viewModel.hideEmailViewLive}"
+                app:layout_constraintEnd_toEndOf="@id/glEnd"
+                app:layout_constraintStart_toStartOf="@id/glStart"
+                app:layout_constraintTop_toBottomOf="@id/tvEmail" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvCompany"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding_tiny"
-            android:text="@{viewModel.userInfoLive.company}"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            app:gone="@{viewModel.hideCompanyViewLive}"
-            app:layout_constraintEnd_toEndOf="@id/glEnd"
-            app:layout_constraintStart_toStartOf="@id/glStart"
-            app:layout_constraintTop_toBottomOf="@id/tvCompanyLabel"
-            tools:text="Sea" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvCompanyLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_normal"
+                android:text="@string/company"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                app:gone="@{viewModel.hideCompanyViewLive}"
+                app:layout_constraintStart_toStartOf="@id/glStart"
+                app:layout_constraintTop_toBottomOf="@id/firstDivider" />
 
-        <View
-            android:id="@+id/secondDivider"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/divider_height"
-            android:layout_marginTop="@dimen/padding_normal"
-            android:background="@color/dove_gray"
-            app:gone="@{viewModel.hideCompanyViewLive}"
-            app:layout_constraintEnd_toEndOf="@id/glEnd"
-            app:layout_constraintStart_toStartOf="@id/glStart"
-            app:layout_constraintTop_toBottomOf="@id/tvCompany" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvCompany"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_tiny"
+                android:text="@{viewModel.userInfoLive.company}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                app:gone="@{viewModel.hideCompanyViewLive}"
+                app:layout_constraintEnd_toEndOf="@id/glEnd"
+                app:layout_constraintStart_toStartOf="@id/glStart"
+                app:layout_constraintTop_toBottomOf="@id/tvCompanyLabel"
+                tools:text="Sea" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvBioLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding_normal"
-            android:text="@string/bio"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            app:gone="@{viewModel.hideBioViewLive}"
-            app:layout_constraintStart_toStartOf="@id/glStart"
-            app:layout_constraintTop_toBottomOf="@id/secondDivider" />
+            <View
+                android:id="@+id/secondDivider"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/divider_height"
+                android:layout_marginTop="@dimen/padding_normal"
+                android:background="@color/dove_gray"
+                app:gone="@{viewModel.hideCompanyViewLive}"
+                app:layout_constraintEnd_toEndOf="@id/glEnd"
+                app:layout_constraintStart_toStartOf="@id/glStart"
+                app:layout_constraintTop_toBottomOf="@id/tvCompany" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvBio"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding_tiny"
-            android:text="@{viewModel.userInfoLive.bio}"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            app:gone="@{viewModel.hideBioViewLive}"
-            app:layout_constraintEnd_toEndOf="@id/glEnd"
-            app:layout_constraintStart_toStartOf="@id/glStart"
-            app:layout_constraintTop_toBottomOf="@id/tvBioLabel"
-            tools:text="github.com.vn" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvBioLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_normal"
+                android:text="@string/bio"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                app:gone="@{viewModel.hideBioViewLive}"
+                app:layout_constraintStart_toStartOf="@id/glStart"
+                app:layout_constraintTop_toBottomOf="@id/secondDivider" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvBio"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_tiny"
+                android:text="@{viewModel.userInfoLive.bio}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                app:gone="@{viewModel.hideBioViewLive}"
+                app:layout_constraintEnd_toEndOf="@id/glEnd"
+                app:layout_constraintStart_toStartOf="@id/glStart"
+                app:layout_constraintTop_toBottomOf="@id/tvBioLabel"
+                tools:text="github.com.vn" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 </layout>

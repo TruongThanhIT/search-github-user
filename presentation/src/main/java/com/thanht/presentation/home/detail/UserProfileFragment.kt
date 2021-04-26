@@ -1,5 +1,8 @@
 package com.thanht.presentation.home.detail
 
+import android.content.Context
+import android.os.Bundle
+import android.util.Log
 import androidx.navigation.fragment.navArgs
 import com.thanht.presentation.R
 import com.thanht.presentation.base.BaseFragment
@@ -22,7 +25,6 @@ class UserProfileFragment : BaseFragment<FragmentUserProfileBinding, UserProfile
             viewModel = mViewModel
             mViewModel.setUserInfo(args.userInfo)
             initEvents()
-            mViewModel.loadUserInfo()
         }
         observable()
     }

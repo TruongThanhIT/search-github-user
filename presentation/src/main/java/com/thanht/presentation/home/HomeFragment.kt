@@ -64,16 +64,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
         super.onPause()
     }
 
-    @FlowPreview
-    @ExperimentalCoroutinesApi
     private fun observable() = mViewModel.run {
-        searchUserResultLive.observe(viewLifecycleOwner) { result ->
+        searchHandler.searchUserResultLive.observe(viewLifecycleOwner) { result ->
             lifecycleScope.launch {
                 adapter.submitData(result)
             }
         }
 
-        searchUserErrorMsg.observe(viewLifecycleOwner) { msg ->
+        searchHandler.errorMsgLive.observe(viewLifecycleOwner) { msg ->
             showErrorDialog(msg)
         }
     }

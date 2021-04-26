@@ -5,7 +5,6 @@ import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
-import com.thanht.presentation.R
 import com.thanht.presentation.base.BaseActivity
 import com.thanht.presentation.base.BaseViewModel
 import com.thanht.presentation.databinding.ActivityMainBinding
