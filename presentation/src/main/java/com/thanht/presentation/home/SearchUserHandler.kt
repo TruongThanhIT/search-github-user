@@ -1,9 +1,7 @@
 package com.thanht.presentation.home
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.asLiveData
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
@@ -12,7 +10,6 @@ import com.thanht.data.executor.PostExecutionThread
 import com.thanht.domain.home.list.SearchUserUseCase
 import com.thanht.presentation.model.UserInfo
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 
 private const val DEBOUNCE_TIME = 400L

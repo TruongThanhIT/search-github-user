@@ -11,6 +11,7 @@ import com.thanht.presentation.databinding.ActivityMainBinding
 import com.thanht.presentation.navigation.NavigationDispatcherImpl
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
+import com.thanht.presentation.R
 
 @AndroidEntryPoint
 class MainActivity : BaseActivity() {
